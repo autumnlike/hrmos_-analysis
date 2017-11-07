@@ -3,11 +3,12 @@ class CreateCandidates < ActiveRecord::Migration[5.1]
     create_table :candidates do |t|
       t.string :hrmos_id, comment: "ハーモスID"
       t.integer :job_id, comment: "求人ID"
+      t.string "job_name", comment: "求人名"
       t.date :entry_date, comment: "応募日"
       t.string :name, comment: "応募者"
       t.integer :entry_type, comment: "応募種類"
       t.string :entry_origin, comment: "応募元"
-      t.integer :status, comment: "ステータス"
+      t.string :status, comment: "ステータス"
       t.string :first_interviewer_name, comment: "1次面接者"
       t.date :first_interview_date, comment: "1次面接日"
       t.string :second_interviewer_name, comment: "2次面接者"
@@ -24,8 +25,12 @@ class CreateCandidates < ActiveRecord::Migration[5.1]
       t.date :accept_date, comment: "内定承諾日"
       t.date :decline_date, comment: "辞退日"
       t.date :failure_date, comment: "不合格日"
+      t.date :welcome_date, comment: "入社日"
+
 
       t.timestamps
     end
+
+    add_index :candidates, :hrmos_id, unique: true
   end
 end
