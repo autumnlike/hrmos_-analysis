@@ -13,6 +13,7 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -29,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'haml-rails'
 
 gem 'config'
 
@@ -56,6 +59,12 @@ group :development do
   gem 'pry-doc'    # methodを表示
   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
   gem 'pry-stack_explorer' # スタックをたどれる
+
+  # Code analyzer
+  gem 'rubocop', require: false
+  gem 'rails_best_practices'
+  gem 'reek', '~> 3.5.0'
+  gem 'erb2haml'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

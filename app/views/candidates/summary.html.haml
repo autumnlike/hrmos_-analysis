@@ -1,0 +1,27 @@
+%h1 歩留まりサマリ
+%table.table.table-hover
+  %thead
+    %tr
+      %th 年月
+      %th 応募
+      %th アクティブ
+      %th 1次選考
+      %th 2次選考
+      %th 最終選考
+      %th 内定
+      %th 内定承諾
+      %th 入社
+      %th 最終前後辞退
+  %tbody
+    - @summary.to_hash.each do |data|
+      %tr
+        %th= data['month']
+        %td= data['entry']
+        %td= data['active']
+        %td= data['first'].to_s + percentage(data['first'], data['entry'])
+        %td= data['second'].to_s + percentage(data['second'], data['entry'])
+        %td= data['last'].to_s + percentage(data['last'], data['first'])
+        %td= data['offer'].to_s + percentage(data['offer'], data['last'])
+        %td= data['accept'].to_s + percentage(data['accept'], data['offer'])
+        %td= data['welcome'].to_s + percentage(data['welcome'], data['accept'])
+        %td= data['decline'].to_s + percentage(data['decline'], data['last'])
