@@ -27,7 +27,7 @@ namespace :import_candidate do
         data["辞退日"] = Date.strptime(data["辞退日"], '%Y年%m月%d日') if data["辞退日"].present?
         data["不合格日"] = Date.strptime(data["不合格日"], '%Y年%m月%d日') if data["不合格日"].present?
         data["入社日"] = Date.strptime(data["入社日"], '%Y年%m月%d日') if data["入社日"].present?
-        c = Candidate.create(
+        c = Candidate.new(
           hrmos_id: data["応募ID"],
           job_id: data["求人ID"],
           job_name: data["選考ポジション"],
@@ -54,6 +54,9 @@ namespace :import_candidate do
           failure_date: data["不合格日"],
           welcome_date: data["入社日"],
         )
+        candidate = Candidate.find_by(hrmos_id: data["応募ID"])
+        c.id = candidate.id if candidate.present?
+        c.save
       end
     end
   end
