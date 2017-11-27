@@ -10,7 +10,7 @@ class Candidate < ApplicationRecord
 			"select
 				substring(entry_date, 1, 7) month,
 				count(1) entry,
-				count(status in ('1次選考', '2次選考', '書類選考', '最終選考', '未対応') or null) active,
+				count(status in ('1次選考', '2次選考', '書類選考', '最終選考', '未対応', '内定') or null) active,
 				count(first_interview_date <> '' or null) first,
 				count(second_interview_date <> '' or null) second,
 				count(last_interview_date <> '' or null) last
