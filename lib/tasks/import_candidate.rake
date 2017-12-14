@@ -1,5 +1,6 @@
 require 'csv'
 
+# bundle exec rake import_candidate:csv
 namespace :import_candidate do
   desc "CSVファイルから読み込み"
   task :csv => :environment do
@@ -31,6 +32,7 @@ namespace :import_candidate do
         c.attributes =  {
           hrmos_id: data["応募ID"],
           job_name: data["選考ポジション"],
+          job_id: data["求人ID"],
           entry_date: data["応募日"],
           name: data["氏名"],
           entry_type: data["応募経路"],
