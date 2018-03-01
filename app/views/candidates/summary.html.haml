@@ -7,6 +7,7 @@
       %th アクティブ
       %th 1次選考
       %th 2次選考
+      %th 3次選考
       %th 最終選考
       %th 内定
       %th 内定承諾
@@ -20,6 +21,7 @@
         %td= data['active']
         %td= data['first'].to_s + percentage(data['first'], data['entry'])
         %td= data['second'].to_s + percentage(data['second'], data['entry'])
+        %td= data['third'].to_s + percentage(data['third'], data['entry'])
         %td= data['last'].to_s + percentage(data['last'], data['first'])
         %td= data['offer'].to_s + percentage(data['offer'], data['last'])
         %td= data['accept'].to_s + percentage(data['accept'], data['offer'])

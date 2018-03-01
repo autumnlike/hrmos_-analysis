@@ -15,7 +15,7 @@
         %th= data['entry_date']
         %td= link_to(data['name'], 'https://hrmos.co/applications#/' + data[:hrmos_id].gsub('-', ''), target: '_blank')
         %td= data['status']
-        %td= data['first_interview_date']
-        %td= data['second_interview_date']
-        %td= data['third_interview_date']
-        %td= data['last_interview_date']
+        %td= data['first_interview_date'].to_s + ' (' + data['first_interviewer_name'] + ')'
+        %td= data['second_interview_date'].to_s + ' (' + data['second_interviewer_name'] + ')'
+        %td= data['third_interview_date'].to_s + ' (' + data['third_interviewer_name'] + ')'
+        %td= data['last_interview_date'].to_s + ' (' + data['last_interviewer_name'] + ')'
